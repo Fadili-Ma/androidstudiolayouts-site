@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Android Studio Layouts</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 0; background: #f0f0f0; }
+    header, footer { background: #2c3e50; color: white; text-align: center; padding: 1em 0; }
+    nav a { color: white; margin: 0 1em; text-decoration: none; }
+    .container { max-width: 600px; margin: auto; padding: 2em; background: white; }
+    form { display: flex; flex-direction: column; }
+    label { margin-top: 1em; }
+    input, textarea { padding: 0.5em; margin-top: 0.5em; }
+    .btn { margin-top: 1em; background: #3498db; color: white; border: none; padding: 0.75em; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="buy.html">Buy Domain</a>
+    </nav>
+  </header>
+  <div class="container">
+    <form action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button class="btn" type="submit">Send</button>
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2025 AndroidStudioLayouts.com</p>
+  </footer>
+</body>
+</html>
