@@ -1,43 +1,1131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Android Studio Layouts</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header, footer { background: #2c3e50; color: white; text-align: center; padding: 1em 0; }
-    nav a { color: white; margin: 0 1em; text-decoration: none; }
-    .container { padding: 2em; max-width: 900px; margin: auto; }
-    .layout-card { background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 2em; padding: 1em; }
-    .layout-card img { max-width: 100%; border-radius: 8px; }
-    .btn { background: #3498db; color: white; padding: 0.5em 1em; border: none; border-radius: 5px; text-decoration: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Android App Templates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #4cc9f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f9fafb;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background-color: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--light);
+            color: var(--secondary);
+        }
+
+        /* Featured Templates */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .template-img {
+            height: 200px;
+            width: 100%;
+            background-color: #4cc9f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .template-content {
+            padding: 20px;
+        }
+
+        .template-content h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .template-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .template-btn {
+            background-color: var(--accent);
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Categories Section */
+        .categories {
+            background-color: var(--light);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .category-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Best Sellers */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            padding: 0 15px;
+        }
+
+        .carousel-content {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .carousel-img {
+            height: 200px;
+            background-color: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .carousel-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .carousel-details h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .carousel-details p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .carousel-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .carousel-btn {
+            background-color: var(--primary);
+            text-align: center;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: var(--primary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text:before {
+            content: """;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .testimonial-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h3, .footer-newsletter h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3:after, .footer-newsletter h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-newsletter p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            padding: 30px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .modal-img {
+            height: 250px;
+            background-color: var(--success);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .modal h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .modal-features {
+            margin: 20px 0;
+        }
+
+        .modal-features h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .modal-features ul {
+            list-style-position: inside;
+            color: var(--gray);
+        }
+
+        .modal-features li {
+            margin-bottom: 8px;
+        }
+
+        .modal-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 20px 0;
+        }
+
+        .modal-btn {
+            background-color: var(--primary);
+            text-align: center;
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .template-img, .carousel-img {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Android Studio Layouts</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="contact.html">Contact</a>
-      <a href="buy.html">Buy Domain</a>
-    </nav>
-  </header>
-  <div class="container">
-    <h2>Free XML & Compose Layouts</h2>
-    <div class="layout-card">
-      <h3>Login Screen</h3>
-      <img src="login-sample.png" alt="Login layout preview">
-      <p><a class="btn" href="downloads/login-layout.xml" download>Download XML</a></p>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Android<span>Template</span></div>
+                <ul class="nav-links">
+                    <li><a href="#featured">Templates</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#best-sellers">Best Sellers</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Android App Templates</h1>
+                <p>High-quality, customizable templates for your next Android project</p>
+                <a href="#featured" class="btn hero-btn">Browse Templates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Templates -->
+    <section class="section" id="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Templates</h2>
+            <p class="section-subtitle">Discover our handpicked selection of top-quality Android app templates to kickstart your project</p>
+            
+            <div class="templates-grid">
+                <!-- Template 1 -->
+                <div class="template-card">
+                    <div class="template-img">E-Commerce App Template</div>
+                    <div class="template-content">
+                        <h3>ShopEasy</h3>
+                        <p>Complete e-commerce solution with product listings, cart, payment processing, and user profiles.</p>
+                        <a href="#" class="btn template-btn view-details" data-template="1">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Template 2 -->
+                <div class="template-card">
+                    <div class="template-img">Social Media App Template</div>
+                    <div class="template-content">
+                        <h3>ConnectNow</h3>
+                        <p>Social networking app with news feed, messaging, user profiles, and media sharing capabilities.</p>
+                        <a href="#" class="btn template-btn view-details" data-template="2">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Template 3 -->
+                <div class="template-card">
+                    <div class="template-img">News App Template</div>
+                    <div class="template-content">
+                        <h3>NewsHub</h3>
+                        <p>Modern news application with categories, bookmarks, search, and push notifications.</p>
+                        <a href="#" class="btn template-btn view-details" data-template="3">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Browse By Category</h2>
+            <p class="section-subtitle">Find the perfect template for your specific needs across various categories</p>
+            
+            <div class="categories-grid">
+                <!-- Category 1 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce</h3>
+                    <a href="#">View Templates</a>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Social Media</h3>
+                    <a href="#">View Templates</a>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Utility</h3>
+                    <a href="#">View Templates</a>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>News & Magazines</h3>
+                    <a href="#">View Templates</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="section" id="best-sellers">
+        <div class="container">
+            <h2 class="section-title">Best Sellers</h2>
+            <p class="section-subtitle">Our most popular Android app templates loved by developers worldwide</p>
+            
+            <div class="carousel">
+                <div class="carousel-container">
+                    <!-- Item 1 -->
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <div class="carousel-img">Food Delivery App</div>
+                            <div class="carousel-details">
+                                <h3>FoodExpress</h3>
+                                <p>Complete food delivery solution with restaurant listings, order tracking, and payment processing.</p>
+                                <div class="carousel-price">$49</div>
+                                <a href="#" class="btn carousel-btn">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <div class="carousel-img">Fitness Tracker App</div>
+                            <div class="carousel-details">
+                                <h3>FitLife</h3>
+                                <p>Comprehensive fitness app with workout plans, progress tracking, and nutrition guidance.</p>
+                                <div class="carousel-price">$39</div>
+                                <a href="#" class="btn carousel-btn">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <div class="carousel-img">Travel Guide App</div>
+                            <div class="carousel-details">
+                                <h3>TravelCompanion</h3>
+                                <p>Feature-rich travel app with destination guides, booking system, and itinerary planning.</p>
+                                <div class="carousel-price">$59</div>
+                                <a href="#" class="btn carousel-btn">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" data-index="0"></div>
+                    <div class="carousel-dot" data-index="1"></div>
+                    <div class="carousel-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Read testimonials from developers who have successfully used our templates</p>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The e-commerce template saved me weeks of development time. The code is clean and well-documented, making customization a breeze.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JD</div>
+                        <div class="testimonial-info">
+                            <h4>John Doe</h4>
+                            <p>Freelance Developer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I've purchased several templates from this site, and each one has exceeded my expectations. The support team is also very helpful.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Miller</h4>
+                            <p>Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a beginner in Android development, these templates have been invaluable learning resources. The structure and architecture are professional.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AJ</div>
+                        <div class="testimonial-info">
+                            <h4>Alex Johnson</h4>
+                            <p>Student Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Android<span>Template</span></div>
+                    <p>We provide high-quality, customizable Android app templates to help developers bring their ideas to life faster.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on new templates and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 AndroidTemplate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="templateModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-img">Template Preview</div>
+            <h2 id="modal-title">Template Name</h2>
+            <p id="modal-description">Template description goes here.</p>
+            
+            <div class="modal-features">
+                <h3>Features</h3>
+                <ul id="modal-features-list">
+                    <li>Feature 1</li>
+                    <li>Feature 2</li>
+                    <li>Feature 3</li>
+                </ul>
+            </div>
+            
+            <div class="modal-price" id="modal-price">$0</div>
+            <a href="#" class="btn modal-btn">Purchase Now</a>
+        </div>
     </div>
-    <div class="layout-card">
-      <h3>Profile Screen</h3>
-      <img src="profile-sample.png" alt="Profile layout preview">
-      <p><a class="btn" href="downloads/profile-layout.xml" download>Download XML</a></p>
-    </div>
-  </div>
-  <footer>
-    <p>&copy; 2025 AndroidStudioLayouts.com</p>
-  </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Carousel Functionality
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        let currentIndex = 0;
+        
+        function updateCarousel() {
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update active dot
+            carouselDots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Add click events to dots
+        carouselDots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                currentIndex = parseInt(dot.getAttribute('data-index'));
+                updateCarousel();
+            });
+        });
+        
+        // Auto-advance carousel
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            updateCarousel();
+        }, 5000);
+        
+        // Modal Functionality
+        const modal = document.getElementById('templateModal');
+        const viewDetailsButtons = document.querySelectorAll('.view-details');
+        const closeModal = document.querySelector('.modal-close');
+        
+        // Template data
+        const templates = {
+            1: {
+                title: 'ShopEasy - E-Commerce App',
+                description: 'Complete e-commerce solution with product listings, cart, payment processing, and user profiles.',
+                features: [
+                    'Product catalog with categories',
+                    'Shopping cart and wishlist',
+                    'User authentication system',
+                    'Payment gateway integration',
+                    'Order history and tracking',
+                    'Admin dashboard'
+                ],
+                price: '$49'
+            },
+            2: {
+                title: 'ConnectNow - Social Media App',
+                description: 'Social networking app with news feed, messaging, user profiles, and media sharing capabilities.',
+                features: [
+                    'User profiles with followers',
+                    'News feed with posts and comments',
+                    'Real-time messaging',
+                    'Media upload (images/video)',
+                    'Push notifications',
+                    'Social sharing features'
+                ],
+                price: '$59'
+            },
+            3: {
+                title: 'NewsHub - News App',
+                description: 'Modern news application with categories, bookmarks, search, and push notifications.',
+                features: [
+                    'News categories and tags',
+                    'Bookmark articles for later',
+                    'Advanced search functionality',
+                    'Push notifications for breaking news',
+                    'Dark mode support',
+                    'Offline reading capability'
+                ],
+                price: '$39'
+            }
+        };
+        
+        // Open modal with template details
+        viewDetailsButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const templateId = button.getAttribute('data-template');
+                const template = templates[templateId];
+                
+                document.getElementById('modal-title').textContent = template.title;
+                document.getElementById('modal-description').textContent = template.description;
+                document.getElementById('modal-price').textContent = template.price;
+                
+                const featuresList = document.getElementById('modal-features-list');
+                featuresList.innerHTML = '';
+                
+                template.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresList.appendChild(li);
+                });
+                
+                modal.style.display = 'flex';
+            });
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
